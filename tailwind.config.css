@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom button */
+.btn-primary {
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded uppercase;
+}
+.btn-primary:hover {
+  @apply bg-blue-700;
+}
+
+.btn-secondary {
+  @apply bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded uppercase;
+}
+.btn-secondary:hover {
+  @apply bg-gray-400;
+}

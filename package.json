@@ -1,0 +1,44 @@
+{
+  "name": "text-generator",
+  "version": "1.0.0",
+  "description": "Text generator for title, excerpt, alt, url",
+  "main": "index.js",
+  "scripts": {
+    "dev:build": "tailwind build tailwind.config.css -c tailwind.config.js -o public/css/app.css",
+    "dev": "npm run dev:build && live-server public --port=8081",
+    "prod:tailwind": "postcss tailwind.config.css -o public/css/tailwind.css",
+    "prod:gulp": "gulp prod:css",
+    "cssnano": "cssnano public/css/app.css dist/app.min.css",
+    "prod:css": "npm run prod:tailwind && npm run prod:gulp && npm run cssnano",
+    "prod:js": "minify public/js/app.js > dist/app.min.js",
+    "prod:html": "html-minifier --input-dir public --output-dir dist --collapse-whitespace",
+    "prod": "npm run prod:css && npm run prod:js && npm run prod:html && live-server dist --port=9091"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/susantokun/text-generator.git"
+  },
+  "keywords": [
+    "string",
+    "javascript",
+    "replace"
+  ],
+  "author": "Susantokun <admin@susantokun.com> (https://info.susantokun.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/susantokun/text-generator/issues"
+  },
+  "homepage": "https://github.com/susantokun/text-generator#readme",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "autoprefixer": "^9.8.6",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-concat-css": "^3.1.0",
+    "html-minifier": "^4.0.0",
+    "live-server": "^1.2.1",
+    "minify": "^5.1.1",
+    "postcss-cli": "^7.1.1",
+    "tailwindcss": "^1.6.2"
+  }
+}
